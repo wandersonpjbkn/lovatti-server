@@ -16,7 +16,7 @@ const server = express()
 server.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
 
 // Security protocols
-server.use(cors(config.cors))
+server.use(cors())
 server.use(compression())
 server.use(helmet())
 
