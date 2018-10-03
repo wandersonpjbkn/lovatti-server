@@ -25,6 +25,8 @@ module.exports = {
         "semi": [
             "error",
             "never"
-        ]
+        ],
+        'no-console': process.env.NODE_ENV === 'production' ? 2 : 0,
+        'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     }
 };
