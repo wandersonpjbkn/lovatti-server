@@ -3,10 +3,8 @@ export default {
     cors: {
         origin: (origin, next) => {
             let domain = [
-                'http://lovatticonfeccoes.com.br/',
-                'http://www.lovatticonfeccoes.com.br/',
-                'https://lovatticonfeccoes.com.br/',
-                'https://www.lovatticonfeccoes.com.br/'
+                'https://lovatti-server.herokuapp.com/',
+                'https://lovatticonfeccoes.com.br/'
             ]
             if (!~domain.indexOf(origin)) {
                 let msg = 'Não é permitido requisições desta origem'
