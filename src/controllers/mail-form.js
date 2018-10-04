@@ -1,11 +1,11 @@
 import nodeMailer from 'nodemailer'
-import MailModel from './../models/mail'
+import MailFormModel from './../models/mail-form'
 
 export default {
     sendMail: (req, res, next) => {
-        const msg = MailModel.data.msgs
-        const smtp = MailModel.data.smtpConfig
-        const mailTo = MailModel.data.mailTo
+        const msg = MailFormModel.data.msgs
+        const smtp = MailFormModel.data.smtpConfig
+        const mailTo = MailFormModel.data.mailTo
         
         const transporter = nodeMailer.createTransport(smtp)
         let d = new Date()
@@ -16,7 +16,7 @@ export default {
             to: `${mailTo}`,
             subject: `${d} | Formulário Site | ${req.body.subject}`,
             html: `${req.body.body}`,
-            replyTo: `"${req.body.email}" <${req.body.name}>`
+            replyTo: `${req.body.email}`
         }
 
         transporter.sendMail(mailOptions, (err, info) => {

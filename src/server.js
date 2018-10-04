@@ -6,7 +6,7 @@ import helmet from 'helmet'
 import morgan from 'morgan'
 import { log } from 'util'
 
-import MailRouter from './routes/mail'
+import MailFormRouter from './routes/mail-form'
 import config from './config'
 
 // Server instance
@@ -24,7 +24,7 @@ server.use(helmet())
 server.use(json())
 
 // Config routes into server
-server.use(MailRouter)
+server.use(MailFormRouter)
 
 // Error handle
 server.use((err, req, res, next) => {
