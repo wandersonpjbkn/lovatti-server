@@ -38,7 +38,7 @@ export default {
             succeed: 'Sua mensagem foi enviada com sucesso. Breve retornaremos'
         },
     
-        // mailTo: 'lovatti@lovatticonfeccoes.com.br'
-        mailTo: 'web@perfectimage.com.br'
+        mailTo: 'lovatti@lovatticonfeccoes.com.br'
+        // mailTo: 'web@perfectimage.com.br'
     }
 }
