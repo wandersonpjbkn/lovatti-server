@@ -5,12 +5,16 @@ import compression from 'compression'
 import helmet from 'helmet'
 import morgan from 'morgan'
 import { log } from 'util'
+import MemoryStore from 'express-rate-limiter/lib/memoryStore'
+import RateLimit from 'express-rate-limiter'
 
-import MailFormRouter from './routes/mail-form'
+import MailFormRouter from './form/routes'
 import config from './config'
 
 // Server instance
 const server = express()
+
+const limiter = new RateLimit({ db: new MemoryStore() })
 
 // Log server event in a string format
 server.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
@@ -22,6 +26,10 @@ server.use(helmet())
 
 // Parsing data to json
 server.use(json())
+
+// Limite rate access request
+server.enable("trust proxy")
+server.use(limiter.middleware())
 
 // Config routes into server
 server.use(MailFormRouter)

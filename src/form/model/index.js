@@ -7,7 +7,7 @@ export default {
             mail: { type: String, default: '', required: true },
             phone: { type: String, default: '', required: false },
             msg: { type: String, default: '', required: false },
-    
+
             // Resale only
             cpf: { type: String, default: '', required: true },
             rg: { type: String, default: '', required: true },
@@ -18,9 +18,9 @@ export default {
             area: { type: String, default: '', required: false },
             city: { type: String, default: '', required: false }
         },
-        
+
         smtpConfig: {
-            host: 'mail.brazip.eng.br',
+            host: 'mail.signflex.com.br',
             port: 587,
             secure: false,
             tls: {
@@ -28,8 +28,8 @@ export default {
             },
             auth: {
                 name: 'no-reply',
-                user: 'no-reply@brazip.eng.br',
-                pass: 'Bra@102030'
+                user: 'no-reply@signflex.com.br',
+                pass: 'IwBo*,8jTyx$'
             }
         },
 
@@ -37,8 +37,8 @@ export default {
             error: 'Houve um erro ao tentar enviar sua mensagem. Por favor tente mais tarde ou envie uma mensagem diretamente do seu e-mail',
             succeed: 'Sua mensagem foi enviada com sucesso. Breve retornaremos'
         },
-    
-        mailTo: 'lovatti@lovatticonfeccoes.com.br'
-        // mailTo: 'web@perfectimage.com.br'
+
+        // mailTo: 'lovatti@lovatticonfeccoes.com.br'
+        mailTo: 'web@perfectimage.com.br'
     }
 }

@@ -1,5 +1,5 @@
 import express from 'express'
-import MailFormController from '../controllers/mail-form'
+import MailFormController from '../controller'
 
 const router = express.Router()
 
