@@ -15,9 +15,9 @@ export default {
         const mailOptions = {
             from: `"${smtp.auth.name}" <${smtp.auth.user}>`,
             to: `${mailTo}`,
+            replyTo: `"${req.body.name}" <${req.body.mail}>`,
             subject: `${d} | Formulário Site | ${req.body.subject}`,
-            html: `${req.body.body}`,
-            replyTo: `${req.body.email}`
+            html: `${req.body.body}`
         }
 
         transporter.sendMail(mailOptions)
