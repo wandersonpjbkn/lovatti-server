@@ -1,18 +1,17 @@
-import { codeDate } from '../../utils'
 import config from '../../config'
 import model from '../model'
 import nodemailer from 'nodemailer'
 
 
 export default {
-  sendMail: (req, res, next) => {
+  sendNewsletter: (req, res, next) => {
     const transporter = nodemailer.createTransport(config.smtp)
 
     const mailOptions = {
       from: `"${config.smtp.auth.name}" <${config.smtp.auth.user}>`,
       to: `${config.mailTo}`,
       replyTo: `"${req.body.name}" <${req.body.mail}>`,
-      subject: `${codeDate()} | Formulário Site | ${req.body.subject}`,
+      subject: `Inscrição Newsletter`,
       html: `${req.body.body}`
     }
 

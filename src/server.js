@@ -9,6 +9,7 @@ import MemoryStore from 'express-rate-limiter/lib/memoryStore'
 import RateLimit from 'express-rate-limiter'
 
 import MailFormRouter from './form/routes'
+import NewsletterFormRouter from './newsletter/routes'
 import config from './config'
 
 // Server instance
@@ -32,16 +33,19 @@ server.enable("trust proxy")
 server.use(limiter.middleware())
 
 // Config routes into server
-server.use(MailFormRouter)
+server.use('/send/form', MailFormRouter)
+server.use('/send/newsletter', NewsletterFormRouter)
 
 // Error handle
 server.use((err, req, res, next) => {
-    // render the error page
-    res.status(err.status || 400)
-    process.env.NODE_ENV !== 'production' && log(err.message)
+  // render the error page
+  res.status(err.status || 400)
+  process.env.NODE_ENV !== 'production' &&
+    log(err.message)
 })
 
 // Server port listener
-server.listen(config.port, () => {
-    process.env.NODE_ENV !== 'production' && log(`Server running on port: ${config.port}`)
+server.listen(config.portServer, () => {
+  process.env.NODE_ENV !== 'production' &&
+    log(`Server running on port: ${config.portServer}`)
 })
