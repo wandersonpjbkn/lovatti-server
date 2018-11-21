@@ -1,6 +1,6 @@
 export default {
   msgs: {
-    error: 'Houve um erro durante sua solicitação. Por favor tente mais tarde.',
+    error: 'Falha durante a tentativa de inscrição. Por favor, tente mais tarde',
     succeed: 'Sua inscrição foi efetuada com sucesso.'
   }
 }
