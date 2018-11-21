@@ -17,7 +17,7 @@ export default {
     }
   },
 
-  mailTo: process.env.NODE_ENV !== 'development'
+  mailTo: process.env.NODE_ENV === 'development'
     ? process.env.MAIL_TEST || 'test@domain.example'
     : process.env.MAIL_CLIENT || 'client@domain.example'
 }
