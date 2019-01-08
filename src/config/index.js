@@ -4,7 +4,12 @@ export default {
   portServer: process.env.PORT || process.env.SERVER_PORT,
 
   smtp: {
-    service: 'gmail',
+    host: process.env.SMTP_HOST || 'localhost',
+    port: process.env.SMTP_PORT || 25,
+    secure: false,
+    tls: {
+      rejectUnauthorized: false
+    },
     auth: {
       name: process.env.SMTP_NAME || 'no-reply',
       user: process.env.SMTP_USER || 'no-reply@domain.example',
