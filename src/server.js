@@ -32,6 +32,12 @@ server.use(json())
 server.enable('trust proxy')
 server.use(limiter.middleware())
 
+// Handle favicon request
+server.use((res, req, next) => {
+  if (req.originalUrl === '/favicon.ico') return res.status(204)
+  next()
+})
+
 // Config routes into server
 server.use('/send/form', MailFormRouter)
 server.use('/send/newsletter', NewsletterFormRouter)
