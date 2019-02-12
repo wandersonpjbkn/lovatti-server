@@ -25,7 +25,6 @@
     "nodemon": "1.18.9"
   },
   "scripts": {
-    "postinstall": "npm run build",
     "start": "set NODE_ENV=development&& nodemon --exec babel-node src/server.js",
     "build": "babel src --out-dir dist",
     "serve": "set NODE_ENV=development&& node dist/server.js"
@@ -34,5 +33,6 @@
   "license": "ISC",
   "engines": {
     "node": "8.11.4"
-  }
+  },
+  "heroku-run-build-script": true
 }
